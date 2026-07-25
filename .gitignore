@@ -6,3 +6,4 @@ out/
 # session transcripts — contain unrelated personal context, never commit
 claude-session.jsonl
 codex-session.jsonl
+precedent-session.jsonl
