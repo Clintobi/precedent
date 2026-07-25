@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Precedent — Colosseum Crowdedness</title>
+<style>
+  body { margin:0; background:#0f0f0d; color:#f2f1ea; font:15px/1.55 ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif; }
+  .wrap { max-width:880px; margin:0 auto; padding:26px 34px 24px; }
+  .eyebrow { font:12px ui-monospace,Menlo,monospace; letter-spacing:.14em; text-transform:uppercase; color:#8d8b80; margin:0 0 10px; }
+  h1 { font-size:26px; margin:0 0 3px; letter-spacing:-.02em; }
+  .sub { color:#9b9a90; margin:0 0 18px; }
+  .headline { display:flex; gap:18px; align-items:baseline; border:1px solid #2c2b25; border-radius:12px; padding:16px 20px; background:#171713; margin-bottom:10px; }
+  .headline b { font-size:38px; letter-spacing:-.03em; color:#7ee081; line-height:1; }
+  .headline span { color:#c9c8bd; }
+  .note { color:#8d8b80; font-size:13.5px; margin:0 0 16px; }
+  table { width:100%; border-collapse:collapse; margin:8px 0 4px; }
+  th { text-align:left; font:11px ui-monospace,Menlo,monospace; letter-spacing:.1em; text-transform:uppercase; color:#8d8b80; border-bottom:1px solid #2c2b25; padding:8px 10px; }
+  td { padding:7px 10px; border-bottom:1px solid #23231e; vertical-align:top; font-size:14px; }
+  td.score { font:13px ui-monospace,Menlo,monospace; color:#e0b062; width:66px; }
+  td.name { width:190px; font-weight:600; }
+  td.desc { color:#9b9a90; }
+  h2 { font-size:14px; margin:18px 0 4px; }
+  .foot { margin-top:16px; padding-top:12px; border-top:1px solid #2c2b25; color:#77756c; font-size:12.5px; }
+  code { font:12px ui-monospace,Menlo,monospace; background:#1d1d18; padding:1px 5px; border-radius:4px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="eyebrow">Colosseum Copilot · 5,400+ hackathon projects</p>
+  <h1>Precedent — crowdedness check</h1>
+  <p class="sub">Submission originality checking with on-chain attestation · queried 25 July 2026</p>
+
+  <div class="headline">
+    <b>0.090</b>
+    <span>highest similarity found across the entire Colosseum corpus.<br>Copilot's own guidance: <code>&gt;0.4 = strong match</code>, <code>0.2–0.4 = worth reading</code>. Nothing reaches either bar.</span>
+  </div>
+  <p class="note">Three separate query angles were run so the result isn't an artifact of one phrasing. The nearest neighbour in all of them is the same project, and it solves a different problem.</p>
+
+  <h2>Nearest projects — "submission originality, duplicate detection, on-chain attestation"</h2>
+  <table>
+    <tr><th>Score</th><th>Project</th><th>What it actually does</th></tr>
+    <tr><td class="score">0.090</td><td class="name">Chronotrace</td><td class="desc">Cross-chain, gas-free timestamped verification and duplicate detection for digital assets <em>before minting</em> (Cypherpunk). NFT assets, not submissions.</td></tr>
+    <tr><td class="score">0.071</td><td class="name">Proof Chronicle</td><td class="desc">Verification tool tracking and validating news articles.</td></tr>
+    <tr><td class="score">0.055</td><td class="name">Nauth</td><td class="desc">Computer-vision NFT authentication, verifying asset uniqueness before minting (Radar).</td></tr>
+    <tr><td class="score">0.054</td><td class="name">Vulnera</td><td class="desc">Decentralized bug bounty platform. Hosts bounties; does not triage or dedupe reports.</td></tr>
+  </table>
+
+  <h2>Other angles queried</h2>
+  <table>
+    <tr><th>Score</th><th>Query</th><th>Nearest</th></tr>
+    <tr><td class="score">0.089</td><td class="desc">plagiarism detection, duplicate submissions, judging</td><td class="desc">Chronotrace</td></tr>
+    <tr><td class="score">0.059</td><td class="desc">proof of authorship, timestamp attestation, first to submit</td><td class="desc">Proof of Togetherness</td></tr>
+    <tr><td class="score">0.032</td><td class="desc">AI slop filtering for bounty and grant applications</td><td class="desc">Flashback AI</td></tr>
+  </table>
+
+  <p class="foot">Read: the space is open. Adjacent work timestamps assets or hosts bounties; nobody in 5,400+ Solana hackathon projects checks a set of submissions against itself and attests the result. Queried via <code>POST /search/projects</code> on the Colosseum Copilot API.</p>
+</div>
+</body>
+</html>

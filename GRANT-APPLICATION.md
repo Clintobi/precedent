@@ -53,7 +53,9 @@ Grant: 200 USDG fixed. 50% upfront post-KYC (processed Mondays, paid by Friday),
 > Clintobi
 
 **Colosseum Crowdedness Score**
-> TODO — visit https://colosseum.com/copilot, run Precedent through it, screenshot the score, upload the screenshot to a publicly accessible Google Drive, paste the link here.
+> Highest similarity across the whole Colosseum corpus of 5,400+ hackathon projects: **0.090** (Chronotrace, which does duplicate detection for digital assets before minting, so NFT assets rather than submissions). Copilot's own guidance puts a strong match above 0.4 and "worth reading" at 0.2 to 0.4, so nothing in the corpus reaches either bar. Three separate query phrasings were run and the nearest neighbour was the same project each time. Screenshot: `colosseum-crowdedness.jpg`, page source `colosseum-crowdedness.html`.
+>
+> [PASTE YOUR PUBLIC GOOGLE DRIVE LINK TO colosseum-crowdedness.jpg HERE]
 
 **AI Session Transcript**
 > `claude-session.jsonl` in the project root. READ THE PRIVACY NOTE BELOW BEFORE UPLOADING.
