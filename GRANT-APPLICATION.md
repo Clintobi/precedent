@@ -90,6 +90,42 @@ buchi0x
 **Wallet Address**
 [YOUR SOLANA ADDRESS — Phantom/Solflare, not an 0x address. Double-check it; payouts go exactly where you point them.]
 
+## Details tab (the live fields, as of 2026-07-25)
+
+### Project Details
+
+The problem: submission review has stopped scaling. curl suspended its paid bug bounty in January after an explosion of AI-generated reports, Nextcloud paused its programme in April for the same reason, and Bugcrowd's submission volume more than quadrupled inside three weeks in March. Hackathons have the same problem with less press. I hit it directly last month running the judging pipeline for the TxODDS × Solana World Cup hackathon: 653 submissions, and the copies only surfaced because I wrote scripts to find them. Most organizers are doing that triage by hand, and when two people claim the same work, it comes down to whoever the platform believes.
+
+The solution is Precedent. You point it at a set of submissions, whether those are hackathon projects, bounty writeups or grant applications, and it returns which entries duplicate each other with the evidence behind every call. Text matching uses 5-word shingles with MinHash signatures and LSH blocking, so a copied README with the product name swapped still gets caught. Code fingerprints strip comments and literals and collapse identifiers, so renaming every variable in a fork doesn't hide it. It also catches shared deployment URLs, shared repositories, shared on-chain addresses, declared forks and identical project names. It reports evidence and never verdicts, because a person should make the call.
+
+Solana is the registry, and that's the part a database can't replace. Every checked submission gets its content hash attested on-chain with a timestamp, and the hash is the PDA seed, so a second attestation of the same hash is rejected by the program itself and the first writer keeps priority. "Who submitted this first" becomes verifiable by anyone without trusting my server. And because the registry is public, an event in October can check its entries against submissions attested at a different platform's event in August, which no organizer's private database can do. The attested hash covers normalized text and code structure only, so a private repo can be attested without disclosing a line of it.
+
+Organizers and sponsors pay per batch in USDC. The engine and the devnet program already run. The grant month covers mainnet, the hosted app, payment, and one real originality report published on a real event.
+
+### Deadline
+
+**Friday, 4 September 2026.**
+
+(Reasoning, not for the form: apply today, roughly a week for a response, KYC and the Monday-to-Friday payment cycle lands the first tranche around 7 August, then four working weeks. Weeks 1 and 2 are already done, so there's slack in it.)
+
+### Proof of Work
+
+Precedent already runs. Repo: github.com/Clintobi/precedent (private for now, happy to share access). The attestation program is deployed to Solana devnet at 4v3eUeqjyyGq26qypp8jBEpTuHSYYP1tqB1H3DuwX4zc. I've attested a real submission hash on it (tx 26QJy9ZoJKBWqQYNxHGAN8KeUxWWjjD6ktQJN3abfW4fp2jecYo1MACXzobRdFsbTNjzCdijumfLvAggC43EPNQc), then tried to attest the same hash again and watched the program reject it. The detection engine scores 653 real submissions in 91 milliseconds with 7 tests passing, and there's a local web app that takes a pasted submission set and returns the flagged pairs with evidence.
+
+What it grew out of: I built the judging pipeline for the TxODDS × Solana World Cup hackathon. 653 submissions, every repository cloned and snapshotted, eligibility checked, scored 0 to 5 against each published criterion with confidence levels, blind review, and duplicate flags for identical normalized READMEs and shared demo or deployment URLs.
+
+I also submitted to that hackathon across three tracks, all built solo: Fulltime, a prediction market with on-chain settlement; EdgeBot, a trading agent with a pre-trade policy gate; and Fan Zone, a provably fair sweepstake.
+
+One thing worth saying plainly, since it's the actual work: the first version of Precedent's engine produced confident false positives. Three unrelated Replit exports hashed identically because each description was "Repository for <url>" and normalization collapses URLs. I only caught that by running it against 653 real records instead of my own fixtures, and it now refuses to judge any submission under 12 words rather than guessing, and reports how many it skipped.
+
+### Personal Github Profile
+
+Clintobi
+
+---
+
+## Superseded drafts (earlier form version)
+
 ## Details — What do you want to build?
 
 Precedent, a submission originality checker with an on-chain attestation registry on Solana.
