@@ -1,5 +1,8 @@
 # Precedent — Superteam Agentic Engineering grant
 
+Repo: https://github.com/Clintobi/precedent (private — the listing requires sharing access with abhwshek@gmail.com if it stays private)
+Devnet program: `4v3eUeqjyyGq26qypp8jBEpTuHSYYP1tqB1H3DuwX4zc`
+
 Grant: https://superteam.fun/earn/grants/agentic-engineering/ (rolling, $200 USDG, 50% upfront post-KYC, 50% on ship, ~1 week response)
 Contact for code access if repo stays private: abhwshek@gmail.com
 Status: verified open 2026-07-25. 251 recipients, $50.2k approved.
