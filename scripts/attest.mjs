@@ -8,7 +8,7 @@ import { Connection, Keypair, PublicKey, SystemProgram, Transaction, Transaction
 
 const PROGRAM_ID = new PublicKey(process.env.PRECEDENT_PROGRAM_ID || '4v3eUeqjyyGq26qypp8jBEpTuHSYYP1tqB1H3DuwX4zc');
 const CLUSTER = process.env.PRECEDENT_CLUSTER || 'https://api.devnet.solana.com';
-const KEYPAIR_PATH = process.env.PRECEDENT_KEYPAIR || '/Users/mac/fulltime-keys/deployer.json';
+const KEYPAIR_PATH = process.env.PRECEDENT_KEYPAIR || `${process.env.HOME}/.config/solana/id.json`;
 
 // Anchor's instruction discriminator: first 8 bytes of sha256("global:<name>")
 function discriminator(name) {
