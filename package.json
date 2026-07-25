@@ -1,0 +1,20 @@
+{
+  "name": "precedent",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Submission originality checker: near-duplicate detection over submission sets, with on-chain attestation of content hashes.",
+  "bin": {
+    "precedent": "./bin/precedent.mjs"
+  },
+  "scripts": {
+    "test": "node --test test/",
+    "check": "node bin/precedent.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.98.4"
+  }
+}
