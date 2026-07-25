@@ -91,7 +91,7 @@ buchi0x
 
 Precedent, a submission originality checker with an on-chain attestation registry on Solana.
 
-Proof I can ship this fast: the engine already exists in rough form, because I built it once under a deadline. Last month I ran the judging pipeline for the TxODDS × Solana World Cup hackathon: 654 submissions, every repo cloned and snapshotted, scored against the rubric, copies flagged. Two flags did most of the work, identical normalized READMEs and submissions sharing a demo or deployment URL. I wrote it as throwaway scripts for one event, then realized every organizer running a hackathon or a bounty does that same triage by hand, and it's getting worse. curl suspended its paid bug bounty in January over AI-generated reports, Nextcloud paused theirs in April, and Bugcrowd's submission volume more than quadrupled inside three weeks in March.
+Proof I can ship this fast: it already partly runs. The detection engine scores 653 real submissions in 91 milliseconds, and the attestation program is deployed to Solana devnet at `4v3eUeqjyyGq26qypp8jBEpTuHSYYP1tqB1H3DuwX4zc`, where a duplicate hash is already rejected on-chain. I built the first version of the engine under a deadline: I ran the judging pipeline for the TxODDS × Solana World Cup hackathon, 653 submissions, every repo cloned and snapshotted, scored against the rubric, copies flagged. Two flags did most of the work, identical normalized READMEs and submissions sharing a demo or deployment URL. I wrote it as throwaway scripts for one event, then realized every organizer running a hackathon or a bounty does that same triage by hand, and it's getting worse. curl suspended its paid bug bounty in January over AI-generated reports, Nextcloud paused theirs in April, and Bugcrowd's submission volume more than quadrupled inside three weeks in March.
 
 Precedent turns that pipeline into a service. You point it at a set of submissions and it returns an originality report: which entries are near-duplicates of each other, which recycle a previous event's winner, which share deploy URLs or deployer wallets, and the evidence behind each call. It reports evidence, not verdicts; a human still decides.
 
@@ -111,8 +111,8 @@ I already work this way. The 654-submission pipeline was built with the AI writi
 
 ## Milestones
 
-**Milestone 1 (weeks 1–2): engine and devnet**
-Fingerprinting running over one real public submission set: normalized text embedding, code-structure hash, shared deploy URL and deployer-wallet collision signals. Anchor attestation program deployed to devnet with tests.
+**Milestone 1 (weeks 1–2): engine and devnet — already done**
+Fingerprinting runs over a real 653-submission set in 91ms: 5-word shingles with MinHash and LSH blocking for near duplicates, winnowed code fingerprints that survive renaming every identifier, and collision signals for deployment URL, demo URL, repository, on-chain address, fork and project name. The Anchor attestation program is live on devnet at `4v3eUeqjyyGq26qypp8jBEpTuHSYYP1tqB1H3DuwX4zc` with the content hash as the PDA seed, so a second attestation of the same hash is rejected on-chain and the first writer keeps priority. 7 tests passing.
 
 **Milestone 2 (week 3): live app and mainnet**
 An organizer pastes a submission list and gets a report with per-pair evidence. Attestation program live on mainnet. USDC payment per batch.
